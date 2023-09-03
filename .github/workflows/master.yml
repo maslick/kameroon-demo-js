@@ -1,0 +1,22 @@
+name: deploy
+
+on:
+  push:
+    branches: [master]
+
+jobs:
+  build:
+    name: Build and deploy
+    runs-on: ubuntu-latest
+    environment:
+      name: kameroon-demo-js
+      url: https://kameroon-demo-js.web.app
+    steps:
+      - name: checkout source code
+        uses: actions/checkout@v2
+      - name: push to Firebase
+        uses: w9jds/firebase-action@v2.0.0
+        with:
+          args: deploy --only hosting:demo-js
+        env:
+          FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
