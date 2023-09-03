@@ -1,0 +1,18 @@
+{
+  "hosting": {
+    "public": ".",
+    "target": "demo-js",
+    "ignore": [
+      "firebase.json",
+      ".firebaserc",
+      ".github",
+      ".gitignore"
+    ],
+    "rewrites": [
+      {
+        "source": "**",
+        "destination": "/index.html"
+      }
+    ]
+  }
+}
