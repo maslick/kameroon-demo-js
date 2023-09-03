@@ -28,7 +28,6 @@ async function render() {
     const keys = await fetchKeysFromLocalStorage();
     privateKey = keys.privateKey;
     publicKey = keys.publicKey;
-    await render();
   } catch (e) {
     console.warn(`keys are not in cache (${e}), creating new...`);
     const keyPair = await createKeys();
@@ -40,6 +39,7 @@ async function render() {
     privateKey = keys.privateKey;
     publicKey = keys.publicKey;
   }
+  await render();
 })();
 
 
