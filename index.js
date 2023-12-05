@@ -10,8 +10,8 @@ function btnClick(e) {
 async function render() {
   const searchParams = new URLSearchParams(window.location.search);
   const el = document.getElementById("header");
-  if (searchParams.has('code')) {
-    const code = searchParams.get('code');
+  if (searchParams.has('barcode')) {
+    const code = searchParams.get('barcode');
     const plainTextCode = await decryptMessage(privateKey, decodeBase64EncryptedMessage(decodeURIComponent(code)));
     const windowUrl = window.location.href;
     const {origin, pathname} = new URL(windowUrl);
